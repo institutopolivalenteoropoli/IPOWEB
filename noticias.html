@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,36 +21,20 @@
       <nav class="menu">
         <a href="index.html">Inicio</a>
         <a href="noticias.html" class="active">Noticias</a>
-        <a href="ofertas.html">Oferta Academica</a>
-        <a href="galeria.html">Galeria</a>
+        <a href="ofertas.html">Oferta Académica</a>
+        <a href="galeria.html">Galería</a>
         <a href="acerca.html">Acerca de Nosotros</a>
         <a href="contacto.html">Contacto</a>
       </nav>
     </div>
   </header>
 
-<main class="news-list">
-  <h2>Ultimas Noticias</h2>
-  <ul>
-    <li>
-      <img src="img/img22.jpg" alt="Nueva oferta académica" />
-      <div class="contenido">
-        <h3>Nueva Oferta Académica</h3>
-        <p>El Instituto amplía su propuesta académica incorporando nuevas especialidades técnicas orientadas a las necesidades del mercado laboral actual.</p>
-        <span class="fecha">Publicado: Mayo 2024</span>
-      </div>
-    </li>
-    <li>
-      <img src="img/noticia3.jpg" alt="Campeonato de Futbol" />
-      <div class="contenido">
-        <h3>Equipo de Futbol llega a la Final</h3>
-        <p>Nuestro equipo de futbol del Instituto Polivalente Oropoli se destacó entre los mejores, llegando a la final en el campeonato colegial 2024.</p>
-        <span class="fecha">Publicado: Abril 2024</span>
-      </div>
-    </li>
-  </ul>
-</main>
-
+  <main class="news-list">
+    <h2>Últimas Noticias</h2>
+    <ul id="noticias-container">
+      <!-- Noticias dinámicas aparecerán aquí -->
+    </ul>
+  </main>
 
   <footer class="footer-elegante">
     <div class="footer-content">
@@ -62,6 +45,35 @@
       </div>
     </div>
   </footer>
-</body>
 
+  <script>
+    async function cargarNoticias() {
+      try {
+        const response = await fetch('/noticias/index.json'); // Se genera en build
+        const noticias = await response.json();
+
+        const container = document.getElementById('noticias-container');
+
+        noticias.forEach(noticia => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <img src="${noticia.image}" alt="${noticia.title}" />
+            <div class="contenido">
+              <h3>${noticia.title}</h3>
+              <p>${noticia.body.substring(0, 150)}...</p>
+              <span class="fecha">Publicado: ${new Date(noticia.date).toLocaleDateString()}</span>
+            </div>
+          `;
+          container.appendChild(li);
+        });
+      } catch (error) {
+        console.error("No se pudieron cargar las noticias:", error);
+      }
+    }
+
+    cargarNoticias();
+  </script>
+  <script src="js/cargar-noticias.js"></script>
+
+</body>
 </html>
