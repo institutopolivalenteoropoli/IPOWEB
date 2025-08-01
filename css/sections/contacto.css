@@ -1,0 +1,129 @@
+:root {
+  --color-primario: #ccad00;
+  --color-negro: #000000;
+  --color-fondo: #f9f9f9;
+  --color-texto: #333333;
+  --color-link: var(--color-primario);
+  --color-link-hover: var(--color-negro);
+  --sombra-base: rgba(0, 0, 0, 0.12);
+  --sombra-hover: rgba(0, 0, 0, 0.18);
+  --fuente-base: 'Poppins', sans-serif;
+}
+
+.contenido-contacto {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 60px 30px;
+  background-color: var(--color-fondo);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px var(--sombra-base);
+  font-family: var(--fuente-base);
+  color: var(--color-texto);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
+}
+
+.contenido-contacto:hover {
+  box-shadow: 0 12px 36px var(--sombra-hover);
+}
+
+.contacto-info {
+  flex: 1 1 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contacto-info h2 {
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: var(--color-negro);
+  border-left: 8px solid var(--color-primario);
+  padding-left: 18px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: color 0.3s ease;
+}
+
+.contacto-info h2:hover {
+  color: var(--color-primario);
+}
+
+.contacto-info p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.contacto-info a {
+  color: var(--color-link);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.contacto-info a:hover,
+.contacto-info a:focus {
+  border-color: var(--color-link-hover);
+  color: var(--color-link-hover);
+  outline: none;
+}
+
+.contacto-mapa {
+  flex: 1 1 1600px;
+  min-height: 600px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--sombra-base);
+  transition: box-shadow 0.4s ease;
+  will-change: box-shadow;
+}
+
+.contacto-mapa:hover {
+  box-shadow: 0 14px 38px var(--sombra-hover);
+}
+
+.mapa-iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.contacto-mapa:hover .mapa-iframe {
+  transform: scale(1.02);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .contenido-contacto {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .contacto-info,
+  .contacto-mapa {
+    flex: 1 1 100%;
+  }
+
+  .mapa-iframe {
+    height: 480px;
+  }
+
+  .contacto-form {
+    padding: 30px 20px;
+    max-width: 100%;
+  }
+}

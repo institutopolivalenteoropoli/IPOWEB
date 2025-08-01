@@ -1,0 +1,29 @@
+/*-------------------------------------
+  RESET Y BASE
+-------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: transparent;
+  color: #111;
+  line-height: 1.6;
+}
+
+body.inicio {
+  position: relative;
+  background-color: #000;
+}
+
+body.inicio::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  pointer-events: none;
+}

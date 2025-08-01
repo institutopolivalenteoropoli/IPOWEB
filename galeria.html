@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería - IPO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo-titulo">
+        <img src="img/logo.png" alt="Logo del Instituto" class="logo-img">
+        <h1>Instituto Polivalente Oropolí</h1>
+      </div>
+
+
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="noticias.html">Noticias</a>
+        <a href="ofertas.html">Oferta Academica</a>
+        <a href="galeria.html">Galeria</a>
+        <a href="acerca.html">Acerca de Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="galeria-surrealista" id="galeria">
+
+      <!-- Modal -->
+      <div id="modal" class="modal">
+        <span class="cerrar">&times;</span>
+        <img class="modal-contenido" id="imgAmpliada" alt="Imagen ampliada">
+        <div id="descripcion"></div>
+      </div>
+
+      <!--Insercion de Imagenes-->
+      <script>
+        const imagenes = [
+          { src: 'img/img1.jpg', desc: 'Excursion SENACIT 2024' },
+          { src: 'img/img2.jpg', desc: 'Ganador Novio IPO 2024' },
+          { src: 'img/img3.jpg', desc: 'Ganadora Novia IPO 2024' },
+          { src: 'img/img4.jpg', desc: 'Eleccion Novios IPO 2024' },
+          { src: 'img/img12.jpg', desc: 'Eleccion Novios IPO 2024' },
+          { src: 'img/img5.jpg', desc: 'Desfile Medio Ambiente 2024' },
+          { src: 'img/img6.jpg', desc: 'Desfile  Medio Ambiente 2024' },
+          { src: 'img/img7.jpg', desc: 'Concurso Vestido Reciclado 2024' },
+          { src: 'img/img8.jpg', desc: 'Concurso Vestido Reciclado 2024' },
+          { src: 'img/img9.jpg', desc: 'Relevo por la vida' },
+          { src: 'img/img10.jpg', desc: 'Informatica Promocion 2024' },
+          { src: 'img/img11.jpg', desc: 'Contaduria y Finanzas Promocion 2024' },
+          { src: 'img/img13.jpg', desc: 'Celebracion Dia de la Madre 2025' },
+          { src: 'img/img14.jpg', desc: 'Celebracion Dia de la Madre 2025' },
+          { src: 'img/img15.jpg', desc: 'Celebracion Dia de la Madre 2025' },
+          { src: 'img/img16.jpg', desc: 'Celebracion Dia de la Madre 2025' },
+          { src: 'img/img17.jpg', desc: 'Celebracion Dia de la Madre 2025' },
+          { src: 'img/img18.jpg', desc: 'Celebracion Dia de la Madre 2025' },
+          { src: 'img/img19.jpg', desc: 'Celebracion Dia de la Madre 2025' },
+          { src: 'img/img20.jpg', desc: 'Celebracion Dia de la Madre 2025' },
+          { src: 'img/img21.jpg', desc: 'Inauguracion TES 2025' },
+          { src: 'img/img22.jpg', desc: 'Innovacion y Desarrollo Agroforestal Promocion 2025' },
+          { src: 'img/img23.jpg', desc: 'Informatica Promocion 2025' },
+          { src: 'img/img25.jpg', desc: 'Contaduria y Finanzas Promocion 2025' },
+          { src: 'img/img26.jpg', desc: 'Concurso Vestido Reciclado 2024' },
+          { src: 'img/img27.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img28.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img29.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img30.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img31.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img32.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img33.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img34.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img35.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img36.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img37.jpg', desc: 'Novio IPO Electo 2025' },
+          { src: 'img/img38.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img39.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img40.jpg', desc: 'Eleccion Novios IPO 2025' },
+          { src: 'img/img41.jpg', desc: 'Novio IPO 2025' },
+          { src: 'img/img42.jpg', desc: 'Novia IPO 2025' },
+          { src: 'img/img43.jpg', desc: 'Celebracion Dia del Estudiante 2025' },
+          { src: 'img/img44.jpg', desc: 'Celebracion Dia del Estudiante 2025' },
+          { src: 'img/img45.jpg', desc: 'Eleccion Novios IPO 2025' }
+        ];
+
+        const galeria = document.getElementById("galeria");
+        const modal = document.getElementById("modal");
+        const imgAmpliada = document.getElementById("imgAmpliada");
+        const descripcion = document.getElementById("descripcion");
+        const cerrar = document.querySelector(".cerrar");
+
+        // Crear dinamicamente las tarjetas
+        imagenes.forEach((img, i) => {
+          const card = document.createElement("div");
+          card.className = "foto-card";
+          card.onclick = () => abrirModal(i);
+          card.innerHTML = `
+      <img src="${img.src}" alt="${img.desc}">
+      <div class="foto-info">${img.desc}</div>`;
+          galeria.appendChild(card);
+        });
+
+        let indiceActual = 0;
+
+        function abrirModal(indice) {
+          indiceActual = indice;
+          modal.style.display = "flex";
+          document.body.style.overflow = "hidden";
+          imgAmpliada.src = imagenes[indiceActual].src;
+          descripcion.textContent = imagenes[indiceActual].desc;
+        }
+
+        function cerrarModal() {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+
+        function cambiarImagen(direccion) {
+          indiceActual += direccion;
+          if (indiceActual < 0) indiceActual = imagenes.length - 1;
+          if (indiceActual >= imagenes.length) indiceActual = 0;
+          abrirModal(indiceActual);
+        }
+
+        // Cerrar modal al hacer clic en la X
+        cerrar.addEventListener("click", cerrarModal);
+
+        // Cerrar modal si clic fuera de la imagen
+        window.addEventListener("click", (event) => {
+          if (event.target === modal) {
+            cerrarModal();
+          }
+        });
+
+        // Navegacion con teclado
+        document.addEventListener("keydown", function (event) {
+          if (modal.style.display === "flex") {
+            if (event.key === "ArrowRight") cambiarImagen(1);
+            else if (event.key === "ArrowLeft") cambiarImagen(-1);
+            else if (event.key === "Escape") cerrarModal();
+          }
+        });
+      </script>
+
+  </main>
+
+  <footer class="footer-elegante">
+    <div class="footer-content">
+      <img src="img/logo.png" alt="Logo IPO" class="footer-logo">
+      <div class="footer-texto">
+        <h2>Instituto Polivalente Oropoli</h2>
+        <p>&copy; 2025 Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

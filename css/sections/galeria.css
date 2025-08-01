@@ -1,0 +1,182 @@
+/*-------------------------------------
+  GALERÍA TIPO NETFLIX
+-------------------------------------*/
+.galeria-netflix {
+  padding: 2rem;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.galeria-netflix h2 {
+  font-size: 2rem;
+  color: #000;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.fila-galeria,
+.galeria-fila {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.fila-galeria::-webkit-scrollbar,
+.galeria-fila::-webkit-scrollbar {
+  display: none;
+}
+
+.foto,
+.galeria-img {
+  min-width: 200px;
+  height: 120px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.foto img,
+.galeria-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.foto:hover,
+.galeria-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  z-index: 2;
+}
+
+/*-------------------------------------
+  MODAL GALERÍA
+-------------------------------------*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.modal-contenido {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #fff;
+  border: 5px solid #FFD700;
+}
+
+.cerrar,
+.prev,
+.next {
+  color: #FFD700;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  user-select: none;
+  z-index: 1001;
+}
+
+.cerrar {
+  right: 30px;
+}
+
+.prev {
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next {
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#descripcion {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: gold;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/*-------------------------------------
+  GALERÍA SURREALISTA
+-------------------------------------*/
+.galeria-surreal,
+.galeria-surrealista {
+  background-color: #fafafa;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  color: #fff;
+  background: linear-gradient(145deg, #000000 0%, #000000 100%);
+}
+
+.galeria-surreal img,
+.foto-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, filter 0.3s ease;
+  filter: brightness(0.8) saturate(1.2);
+}
+
+.galeria-surreal img:hover,
+.foto-card:hover img {
+  transform: rotate(-2deg) scale(1.03);
+  filter: brightness(1) saturate(1.5);
+}
+
+.foto-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  color: #FFD700;
+}
+
+.foto-card:hover {
+  transform: rotate(-2deg) scale(1.03);
+  box-shadow: 0 25px 50px rgba(255, 215, 0, 0.6);
+}
+
+.foto-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 1rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px #000;
+  text-align: center;
+}
