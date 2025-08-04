@@ -1,26 +1,13 @@
-/* styles.css */
-
-/* Reset y base */
-@import url('./css/base.css');
-
-/* Layout general */
-@import url('./css/layout.css');
-
-/* Secciones */
-@import url('./css/sections/hero.css');
-@import url('./css/sections/noticias.css');
-@import url('./css/sections/ofertas.css');
-@import url('./css/sections/carrusel.css');
-@import url('./css/sections/galeria.css');
-@import url('./css/sections/contacto.css');
-@import url('./css/sections/institucional.css');
-@import url('./css/sections/acerca.css');
-
-/* Tablas */
-@import url('./css/tables.css');
-
-/* Componentes comunes */
-@import url('./css/components.css');
-
-/* Animaciones */
-@import url('./css/animations.css');
+@import url('css/base.css');
+@import url('css/layout.css');
+@import url('css/sections/hero.css');
+@import url('css/sections/noticias.css');
+@import url('css/sections/ofertas.css');
+@import url('css/sections/carrusel.css');
+@import url('css/sections/galeria.css');
+@import url('css/sections/contacto.css');
+@import url('css/sections/institucional.css');
+@import url('css/sections/acerca.css');
+@import url('css/tables.css');
+@import url('css/components.css');
+@import url('css/animations.css');
