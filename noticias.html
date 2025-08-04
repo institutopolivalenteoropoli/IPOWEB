@@ -46,34 +46,7 @@
     </div>
   </footer>
 
-  <script>
-    async function cargarNoticias() {
-      try {
-        const response = await fetch('/noticias/index.json'); // Se genera en build
-        const noticias = await response.json();
-
-        const container = document.getElementById('noticias-container');
-
-        noticias.forEach(noticia => {
-          const li = document.createElement('li');
-          li.innerHTML = `
-            <img src="${noticia.image}" alt="${noticia.title}" />
-            <div class="contenido">
-              <h3>${noticia.title}</h3>
-              <p>${noticia.body.substring(0, 150)}...</p>
-              <span class="fecha">Publicado: ${new Date(noticia.date).toLocaleDateString()}</span>
-            </div>
-          `;
-          container.appendChild(li);
-        });
-      } catch (error) {
-        console.error("No se pudieron cargar las noticias:", error);
-      }
-    }
-
-    cargarNoticias();
-  </script>
-  <script src="js/cargar-noticias.js"></script>
+  
 
 </body>
 </html>
